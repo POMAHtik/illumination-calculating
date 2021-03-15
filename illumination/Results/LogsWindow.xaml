@@ -1,0 +1,20 @@
+﻿<Window x:Class="illumination.Results.LogsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:illumination.Results"
+        mc:Ignorable="d"
+        Title="LogsWindow" WindowStyle="SingleBorderWindow" Height="490" Width="800" Closing="Window_Closing">
+    <Grid>
+        <StackPanel>
+            <!--Text="{Binding RelativeSource = }"-->
+            <TextBox IsReadOnly="True" Name="LogBox" Height="380" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility="Visible"/>
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                <Button Content="Зберегти" Click="Button_Click"/>
+                <Label Width="100"></Label>
+                <Button Content="Очистити" Click="Button_Click_1"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

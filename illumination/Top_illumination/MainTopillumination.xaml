@@ -1,0 +1,78 @@
+﻿<Page x:Class="illumination.Top_illumination.MainTopillumination"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:illumination.Top_illumination"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="700"
+      Title="MainTopillumination">
+    <Page.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="Width" Value="100" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="Height" Value="40" />
+            <Setter Property="BorderThickness" Value="5"/>
+            <Setter Property="BorderBrush" Value="Lavender" />
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="Height" Value="40" />
+        </Style>
+    </Page.Resources>
+    <Grid>
+        <StackPanel HorizontalAlignment="Right" Grid.Column="0">
+                <Label HorizontalAlignment="Center" Content="Введіть наступні дані:"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Label Content="Довжина приміщення:"/>
+                <TextBox x:Name="TxtLengthOfRoom"  PreviewTextInput = "NumberValidationTextBox"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Label Content="Ширина приміщення:"/>
+                <TextBox x:Name="TxtWidthOfRoom" PreviewTextInput = "NumberValidationTextBox"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Label Content="Висота приміщення:"/>
+                <TextBox x:Name="TxtHeightOfRoom" PreviewTextInput = "NumberValidationTextBox"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Label Content="Ширина прогону:"/>
+                <TextBox x:Name="TxtWidthProgon" PreviewTextInput="NumberValidationTextBox"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Label Content="Кількість прогонів:"/>
+                <TextBox x:Name="TxtCountProgon" PreviewTextInput="NumberValidationTextBox"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Label Content="Тип ліхтаря:"/>
+                <ComboBox FontSize="18" Height="40" Width="300" Margin="5"  VerticalContentAlignment="Center" x:Name="TxtTypeOfLight" SelectionChanged="TxtTypeOfLight_SelectionChanged" >
+                <TextBlock>Стручкові світлові прорізи</TextBlock>
+                <TextBlock>Штучні світлові прорізи</TextBlock>
+                <TextBlock>Трапецієподібні ліхтарі</TextBlock>
+                <TextBlock>Прямокутні ліхтарі</TextBlock>
+                <TextBlock>З однобічним похилим заскленням(шеди)</TextBlock>
+                <TextBlock>З однобічним вертикальним заскленням(шеди)</TextBlock>
+                </ComboBox>
+                <Button x:Name="ExtraButton" Visibility="Collapsed" Width="40" FontSize="20" VerticalContentAlignment="Center" Content="..." Click="ExtraButton_Click"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Label Content="Висота від робочої поверхні до нижньої грані засклення:"/>
+                <TextBox x:Name="TxtLengthToWindow" PreviewTextInput="NumberValidationTextBox"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Label Content="Середньозважений коефіцієнт світловідбивання:"/>
+                <TextBox x:Name="TxtAverageCoefficient" PreviewTextInput="NumberValidationTextBox"/>
+            </StackPanel>
+            </StackPanel>
+            <StackPanel  HorizontalAlignment="Center" Grid.ColumnSpan="2" VerticalAlignment="Bottom" >
+                <Button x:Name="BtnT0" Content="Розрахувати τ0" Width="452" Height="44" FontSize="18" Click="BtnT0_Click" Margin="10"/>
+            <Button x:Name="BtnS" Content="Розрахувати площу світлопрорізів" Width="452" FontSize="18" Height="44" Click="BtnS_Click" Margin="10"/>
+            </StackPanel>
+        </Grid>
+</Page>

@@ -1,0 +1,48 @@
+﻿<Window x:Class="illumination.Top_illumination.Nl_extra"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:illumination.Top_illumination"
+        mc:Ignorable="d"
+        Title="Nl_extra" WindowStyle="SingleBorderWindow" Closing="Window_Closing" Width="670" Height="330">
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="Width" Value="100" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="Height" Value="40" />
+            <Setter Property="BorderThickness" Value="5"/>
+            <Setter Property="BorderBrush" Value="Lavender" />
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="Height" Value="40" />
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <StackPanel Orientation="Horizontal">
+            <Image Source="Image.png" Width="150" VerticalAlignment="Top"></Image>
+            <StackPanel>
+                <Label Content="Площа вхідного отвору(S1):"></Label>
+                <Label Content="Площа вихідного отвору(S2):"></Label>
+                <Label Content="Площа бокової поверхні(Sб):"></Label>
+                <Label Content="Довжина приміщення вздовж осі прогонів:"></Label>
+                <Label Content="Висота покрівлі над робочою поверхнею:"></Label>
+            </StackPanel>
+
+            <StackPanel>
+                <TextBox x:Name="TxtS1" PreviewTextInput = "NumberValidationTextBox"/>
+                <TextBox x:Name="TxtS2" PreviewTextInput = "NumberValidationTextBox"/>
+                <TextBox x:Name="TxtSb" PreviewTextInput = "NumberValidationTextBox"/>
+                <TextBox x:Name="TxtLp" PreviewTextInput = "NumberValidationTextBox"/>
+                <TextBox x:Name="TxtH" PreviewTextInput = "NumberValidationTextBox"/>
+            </StackPanel>
+        </StackPanel>
+        <Button VerticalAlignment="Bottom" Margin="10" HorizontalAlignment="Center" Content="Done" Width="300" Click="Button_Click"/>
+    </Grid>
+</Window>

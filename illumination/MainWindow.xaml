@@ -1,0 +1,61 @@
+﻿<Window x:Class="illumination.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:illumination.Side_illumination"
+        mc:Ignorable="d"
+        Title="Бокове освітлення" WindowStartupLocation="CenterScreen" Background="Snow" FontFamily="Times New Roman" FontSize="18" Closing="Window_Closing">
+    <Viewbox HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition ></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+           
+            <Frame Grid.Column="1" Name="Frame1" NavigationUIVisibility="Hidden"/>
+            <StackPanel Margin="0,30">
+                <Button x:Name="BtnKPO" Content="Розрахувати Dн" HorizontalAlignment="Left"  Margin="10" Width="430" Height="40" Click="BtnKPO_Click"/>
+                <Label Content="Виберіть область:"/>
+                <ListBox x:Name="Lst" Height="328" Width="430" Margin="10,0,0,10" Background="GhostWhite" HorizontalAlignment="Left">
+                    <RadioButton x:Name="rd0" GroupName="Regions" Content="Одеська" VerticalContentAlignment="Center" Checked="Region4_Checked"/>
+                    <RadioButton x:Name="rd1" GroupName="Regions" Content="Дніпропетровська" VerticalContentAlignment="Center" Checked="Region3_Checked"/>
+                    <RadioButton x:Name="rd2" GroupName="Regions" Content="Чернігівська" VerticalContentAlignment="Center" Checked="Region2_Checked"/>
+                    <RadioButton x:Name="rd3" GroupName="Regions" Content="Харківська" VerticalContentAlignment="Center" Checked="Region2_Checked"/>
+                    <RadioButton x:Name="rd4" GroupName="Regions" Content="Житомирська" VerticalContentAlignment="Center" Checked="Region1_Checked"/>
+                    <RadioButton x:Name="rd5" GroupName="Regions" Content="Полтавська" VerticalContentAlignment="Center" Checked="Region2_Checked"/>
+                    <RadioButton x:Name="rd6" GroupName="Regions" Content="Херсонська" VerticalContentAlignment="Center" Checked="Region4_Checked"/>
+                    <RadioButton x:Name="rd7" GroupName="Regions" Content="Київська" VerticalContentAlignment="Center" Checked="Region2_Checked"/>
+                    <RadioButton x:Name="rd8" GroupName="Regions" Content="Запорізька" VerticalContentAlignment="Center" Checked="Region4_Checked"/>
+                    <RadioButton x:Name="rd9" GroupName="Regions" Content="Луганська" VerticalContentAlignment="Center" Checked="Region3_Checked"/>
+                    <RadioButton x:Name="rd10" GroupName="Regions" Content="Донецька" VerticalContentAlignment="Center" Checked="Region3_Checked"/>
+                    <RadioButton x:Name="rd11" GroupName="Regions" Content="Вінницька" VerticalContentAlignment="Center" Checked="Region2_Checked"/>
+                    <RadioButton x:Name="rd12" GroupName="Regions" Content="АР Крим" VerticalContentAlignment="Center" Checked="Region4_Checked"/>
+                    <RadioButton x:Name="rd13" GroupName="Regions" Content="Миколаївська" VerticalContentAlignment="Center" Checked="Region4_Checked"/>
+                    <RadioButton x:Name="rd14" GroupName="Regions" Content="Кіровоградська" VerticalContentAlignment="Center" Checked="Region3_Checked"/>
+                    <RadioButton x:Name="rd15" GroupName="Regions" Content="Сумська" VerticalContentAlignment="Center" Checked="Region2_Checked"/>
+                    <RadioButton x:Name="rd16" GroupName="Regions" Content="Львівська" VerticalContentAlignment="Center" Checked="Region1_Checked"/>
+                    <RadioButton x:Name="rd17" GroupName="Regions" Content="Черкаська" VerticalContentAlignment="Center" Checked="Region2_Checked"/>
+                    <RadioButton x:Name="rd18" GroupName="Regions" Content="Хмельницька" VerticalContentAlignment="Center" Checked="Region1_Checked"/>
+                    <RadioButton x:Name="rd19" GroupName="Regions" Content="Волинська" VerticalContentAlignment="Center" Checked="Region1_Checked"/>
+                    <RadioButton x:Name="rd20" GroupName="Regions" Content="Рівненська" VerticalContentAlignment="Center" Checked="Region1_Checked"/>
+                    <RadioButton x:Name="rd21" GroupName="Regions" Content="Івано-Франківська" VerticalContentAlignment="Center" Checked="Region1_Checked"/>
+                    <RadioButton x:Name="rd22" GroupName="Regions" Content="Тернопільська" VerticalContentAlignment="Center" Checked="Region1_Checked"/>
+                    <RadioButton x:Name="rd23" GroupName="Regions" Content="Чернівецька" VerticalContentAlignment="Center" Checked="Region2_Checked"/>
+                    <RadioButton x:Name="rd24" GroupName="Regions" Content="Закарпатська" VerticalContentAlignment="Center" Checked="Region1_Checked"/>
+                </ListBox>
+                <Button HorizontalAlignment="Left" x:Name="BtnCoefficientKz" Content="Розрахувати Kз" Margin="10" Width="430" Height="40" Click="BtnCoefficientKz_Click"/>
+                <StackPanel Width="430" Orientation="Horizontal">
+                    <Button Content="Показати журнал" Margin="10,0,120,0" Click="ShowLog_Click"/>
+                    <ComboBox SelectedIndex="0" HorizontalAlignment="Right" Width="140" Margin="10" SelectionChanged="ComboBox_SelectionChanged" >
+                        <TextBlock><Run Text="Бокове"/></TextBlock>
+                        <TextBlock><Run Text="Верхнє"/></TextBlock>
+                    </ComboBox>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </Viewbox>
+</Window>

@@ -1,0 +1,97 @@
+﻿<Window x:Class="illumination.KPO.KPODh"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:illumination"
+        mc:Ignorable="d"
+        Title="KPODh"  WindowStyle="SingleBorderWindow" Width="700" WindowStartupLocation="CenterScreen" Background="Snow" FontFamily="Times New Roman" FontSize="18" Height="650" ResizeMode="NoResize" Closing="Window_Closing">
+    
+    <Grid Width="700" Height="650">
+        <StackPanel HorizontalAlignment="Left" Margin="20">
+        <ListBox x:Name="LstCivilianBuildings" HorizontalAlignment="Left" Height="134" Margin="20" Width="620" Background="GhostWhite">
+            <TextBlock>Цивільні будівлі:</TextBlock>
+            <RadioButton x:Name="rd0" GroupName="Building" Content="Адміністративні будинки" VerticalContentAlignment="Center" Checked="Rd0_Checked"/>
+            <RadioButton x:Name="rd1" GroupName="Building" Content="Банківські та страхові установи" VerticalContentAlignment="Center" Checked="Rd1_Checked"/>
+            <RadioButton x:Name="rd2" GroupName="Building" Content="Заклади дошкільної освіти" VerticalContentAlignment="Center" Checked="Rd2_Checked"/>
+            <RadioButton x:Name="rd3" GroupName="Building" Content="Заклади загальної середньої, професійної та вищої освіти" VerticalContentAlignment="Center" Checked="Rd3_Checked"/>
+            <RadioButton x:Name="rd4" GroupName="Building" Content="Установи для дозвілля" VerticalContentAlignment="Center" Checked="Rd4_Checked"/>
+            <RadioButton x:Name="rd5" GroupName="Building" Content="Санаторії, будинки відпочинку" VerticalContentAlignment="Center" Checked="Rd5_Checked"/>
+            <RadioButton x:Name="rd6" GroupName="Building" Content="Фізкультурно-оздоровчі заклади" VerticalContentAlignment="Center" Checked="Rd6_Checked"/>
+            <RadioButton x:Name="rd7" GroupName="Building" Content="Підприємства харчування (заклади ресторанного господарства)" VerticalContentAlignment="Center" Checked="Rd7_Checked"/>
+            <RadioButton x:Name="rd8" GroupName="Building" Content="Магазини" VerticalContentAlignment="Center" Checked="Rd8_Checked"/>
+            <RadioButton x:Name="rd9" GroupName="Building" Content="Підприємства побутового обслуговування" VerticalContentAlignment="Center" Checked="Rd9_Checked"/>
+            <RadioButton x:Name="rd10" GroupName="Building" Content="Готелі" VerticalContentAlignment="Center" Checked="Rd10_Checked"/>
+            <RadioButton x:Name="rd11" GroupName="Building" Content="Заклади охорони здоров'я" VerticalContentAlignment="Center" Checked="Rd11_Checked"/>
+            <RadioButton x:Name="rd12" GroupName="Building" Content="Вокзали" VerticalContentAlignment="Center" Checked="Rd12_Checked"/>
+            <RadioButton x:Name="rd13" GroupName="Building" Content="Інші приміщення виробничих, допоміжних цивільних будівель" VerticalContentAlignment="Center" Checked="Rd13_Checked"/>
+            <TextBlock>Об'єкти комунального призначення:</TextBlock>
+                <RadioButton x:Name="rd14" GroupName="Building" Content="Станції технічного обслуговування транспорту, транспортні підприємства" VerticalContentAlignment="Center" Checked="rd14_Checked"/>
+                <RadioButton x:Name="rd15" GroupName="Building" Content="Електроприміщення" VerticalContentAlignment="Center" Checked="rd15_Checked"/>
+                <RadioButton x:Name="rd16" GroupName="Building" Content="Приміщення інженерних мереж і інші технічні приміщення" VerticalContentAlignment="Center" Checked="rd16_Checked"/>
+                <RadioButton x:Name="rd17" GroupName="Building" Content="Склади" VerticalContentAlignment="Center" Checked="rd17_Checked"/>
+                <RadioButton x:Name="rd18" GroupName="Building" Content="Пожежні депо" VerticalContentAlignment="Center" Checked="rd18_Checked"/>
+                <RadioButton x:Name="rd19" GroupName="Building" Content="Районні управління з експлатації будівель" VerticalContentAlignment="Center" Checked="rd19_Checked"/>
+                <TextBlock>Житлові будинки:</TextBlock>
+                <RadioButton x:Name="rd20" GroupName="Building" Content="Житлові будинки" VerticalContentAlignment="Center" Checked="rd20_Checked"/>
+            </ListBox>
+            <!--<DataGridCell IsEnabled="{Binding Path=isEnabled, Mode=TwoWay}"></DataGridCell>-->
+            <DataGrid HorizontalAlignment="Left" Margin="20" CanUserAddRows="False" CanUserResizeColumns="False" CanUserResizeRows="True" Height="220" Width="620" AutoGenerateColumns="False" Name="KpoDataGrid">
+                <!--<DataGrid.Resources>
+                    <Style TargetType="{x:Type DataGridRow}" BasedOn="{StaticResource {x:Type DataGridRow}}">
+                        <Setter Property="IsEnabled" Value="True"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding isEnabled,Mode=TwoWay}" Value="False">
+                                <Setter Property="IsEnabled" Value="False" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </DataGrid.Resources>-->
+                <DataGrid.RowStyle>
+                    <Style TargetType="{x:Type DataGridRow}">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding isEnabled}" Value="False">
+                                <Setter Property="IsEnabled" Value="False" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </DataGrid.RowStyle>
+                <DataGrid.Columns>
+                    <DataGridTextColumn IsReadOnly="True" Header="№" Binding="{Binding Path=N, Mode=TwoWay}"/>
+
+                    <DataGridTemplateColumn Header=" ">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <RadioButton Checked="RadioButton_Checked" GroupName="Test" IsChecked="{Binding isChecked, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTextColumn IsReadOnly="True" Header="Площина" Width="100" Binding="{Binding Path=Plane, Mode=TwoWay}"/>
+
+                    <DataGridTextColumn IsReadOnly="True" Header="Види кімнат" Width="500" Binding="{Binding Path=Room, Mode=TwoWay}"/>
+
+                    <DataGridTextColumn IsReadOnly="True" Header="Dн мін." Width="100" Binding="{Binding Path=DhMin, Mode=TwoWay}"/>
+
+                    <DataGridTextColumn IsReadOnly="True" Header="Dн сер." Width="100" Binding="{Binding Path=DhSer, Mode=TwoWay}"/>
+
+                    <DataGridTextColumn IsReadOnly="True" Header="Dн(c) мін." Width="100" Binding="{Binding Path=SumDhMin, Mode=TwoWay}"/>
+
+                    <DataGridTextColumn IsReadOnly="True" Header="Dн(c) сер." Width="100" Binding="{Binding Path=SumDhSer, Mode=TwoWay}"/>
+                </DataGrid.Columns>
+                    
+            </DataGrid>
+
+            <StackPanel Width="602" Orientation="Horizontal">   
+                <CheckBox HorizontalAlignment="Right" x:Name="CheckBoxHands" Width="200" Height="30" Content="Ввести вручну" Unchecked="CheckBoxHands_Unchecked" Checked="CheckBoxHands_Checked"></CheckBox>
+                <TextBox HorizontalAlignment="Right" x:Name="HandsValue" Width = "261" Height="30" IsEnabled="False" PreviewTextInput = "NumberValidationTextBox"></TextBox>
+
+            </StackPanel>
+            <StackPanel Width="602" Orientation="Horizontal" Margin="20">
+                <CheckBox HorizontalAlignment="Right" x:Name="DhMin" Width="200" Height="30" Content="Dн мінімальне" Checked="CheckButton_Checked" Unchecked="CheckButton_Checked"></CheckBox>
+                <CheckBox HorizontalAlignment="Right" x:Name="DhSum" Width="200" Height="30" Content="Dн суміщене" Checked="CheckButton_Checked" Unchecked="CheckButton_Checked"></CheckBox>
+            </StackPanel>
+            <Button x:Name="BtnDh" Content="Розрахувати Dн" Width="602" Height="44" Click="BtnDh_Click" />
+        </StackPanel>
+    </Grid>
+</Window>

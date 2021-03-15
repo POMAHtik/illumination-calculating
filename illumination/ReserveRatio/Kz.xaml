@@ -1,0 +1,45 @@
+﻿<Window x:Class="illumination.ReserveRatio.Kz"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:illumination.ReserveRatio"
+        mc:Ignorable="d"
+        Title="Kz" Width="700" Background="Snow" WindowStartupLocation="CenterScreen"  ResizeMode="NoResize" WindowStyle="SingleBorderWindow"  FontFamily="Times New Roman" FontSize="18" Height="610" Closing="Window_Closing">
+    <Grid>
+        <StackPanel Margin="40">
+            <ComboBox x:Name="ChooseTypeBox" FontSize="16"  HorizontalAlignment="Left" Width="410" Height="33" Background="Lavender" SelectionChanged="ChooseTypeBox_SelectionChanged">
+                <ComboBoxItem x:Name="WorkingRooms" Content="Виробничі приміщення з повітряним середовищем" Background="Lavender" Height="30" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"/>
+                <ComboBoxItem x:Name="LifeRooms" Content="Приміщення громадських та житлових будинків" Background="Lavender" Height="30" VerticalContentAlignment="Center" HorizontalContentAlignment="Left"/>
+            </ComboBox>
+            <DataGrid CanUserAddRows="False" CanUserDeleteRows="False" Height="150" Width="602" Margin="0,20" HorizontalAlignment="Left" AutoGenerateColumns="False" Name="KzDataGrid" >
+                <DataGrid.Columns >
+                    <DataGridTextColumn Header="№" Binding="{Binding Path=N, Mode=TwoWay}" IsReadOnly="True"/>
+
+                    <DataGridTemplateColumn Header=" ">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <RadioButton Checked="RadioButton_Checked" GroupName="Test" IsChecked="{Binding isChecked, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Header="Пил" Binding="{Binding Path=Dust, Mode=TwoWay}" IsReadOnly="True"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <Label Content="Виберіть кут нахилу світлопроникного матеріалу до горизонту:" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" Width="497" Height="30"/>
+            <ListBox x:Name="LstAngle" HorizontalAlignment="Left" Height="102" Width="602" Background="GhostWhite">
+                <RadioButton x:Name="rd0" GroupName="Angle" Content="0-15"  VerticalContentAlignment="Center"  Checked="Rd_0_Checked"/>
+                <RadioButton x:Name="rd1" GroupName="Angle" Content="16-45" VerticalContentAlignment="Center" Checked="Rd_1_Checked"/>
+                <RadioButton x:Name="rd2" GroupName="Angle" Content="46-75" VerticalContentAlignment="Center" Checked="Rd_2_Checked"/>
+                <RadioButton x:Name="rd3" GroupName="Angle" Content="76-90" VerticalContentAlignment="Center" Checked="Rd_3_Checked"/>
+            </ListBox>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                <CheckBox x:Name="CheckBoxHands" Width="200" Height="30" HorizontalAlignment="Left" Margin="20" Content="Ввести вручну" Unchecked="CheckBoxHands_Unchecked" Checked="CheckBoxHands_Checked"></CheckBox>
+                <TextBox x:Name="HandsValue" Width = "261" Height="30" IsEnabled="False" PreviewTextInput = "NumberValidationTextBox"></TextBox>
+            </StackPanel>
+            <Button x:Name="BtnKz" Content="Розрахувати Kз" Width="400" Height="44" Margin="20" Click="BtnKz_Click"/>
+                
+        </StackPanel>
+    </Grid>
+</Window>
